@@ -1,15 +1,20 @@
 {% extends 'web/base.html' %}
 {% block body %}
-<br><br>
 {% if user.is_authenticated %}
 
-<form class="" action="" method="post" enctype="multipart/form-data">
-	{% csrf_token %}
-	{% include 'web/form_template.html' %}
-	<button>submit</button>
-</form>
+<div class="width">
+	<section class="searchform_section">
+		<div class="width displayFlex midleSearch_flex">
+			<p>Adding/Updating Icons</p>
+		</div>
+	</section>
 
-<br>
+	<form class="formPart" action="" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{% include 'web/form_template.html' %}
+		<button>submit</button>
+	</form>
+</div>
 
 <script type="text/javascript">
 	var today = new Date();
@@ -33,6 +38,13 @@
 	document.getElementById('id_published_date').value= today;
 </script>
 
+{% else %}
+<div class="width">
+	<section class="adminpage">
+		<h3>Sorry! but you shouldn't be here, Please go back to the home page</h3>
+		<a href="{% url 'index:index' %}" class="goToHomePage">HOME PAGE</a>
+	</section>
+</div>
 {% endif %}
 
 {% endblock %}
