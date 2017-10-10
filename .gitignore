@@ -5,8 +5,8 @@ db.sqlite3
 /static
 /media
 .venv
-.venv/
-venv/
+/.venv
+/venv
 
 #SQL Lite DBs
 *.sqlite3
