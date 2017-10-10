@@ -1,0 +1,46 @@
+{% extends 'web/base.html' %}
+{% block pageTitle %}home page{% endblock %}
+
+{% block body %}
+
+<div class="width">
+	<section class="searchform_section">
+		<div class="width displayFlex midleSearch_flex">
+			<p>Your search resault : {{query}}</p>
+			<span>If that's not what you want, you can search it again</span>
+			<form class="main_searchForm" method="get" action="{% url 'index:searchresults' %}" accept-charset="utf-8">
+				<input type="text" id="searchBox" class="input-medium search-query" name="searchQuery" placeholder="Search for icons">
+				<button>Submit</button>
+			</form>
+		</div>
+	</section>
+
+	<section class="icon_sort">
+
+		{% if searchResult %}
+		<ul>
+		{% for icon in searchResult %}
+			<li>
+				<a href="{% url 'index:singlepage' icon.id %}">
+					<img src="{{ icon.preview_image.url }}">
+					<div class="txt_column">
+						<div class="txt">
+							<h6>{{ icon.name }}</h6>
+							<span>{{ icon.published_date|date:"Y / M"  }}</span>
+						</div>
+
+						<p>{{ icon.views }}</p>
+					</div>
+				</a>
+			</li>
+		{% endfor %}
+
+		{% else %}
+		  <h3>No icon found, Please try again or go back to the home page</h3>
+		  <a href="{% url 'index:index' %}" class="goToHomePage">HOME PAGE</a>
+		{% endif %}
+		</ul>
+	</section>
+</div>
+
+{% endblock %}

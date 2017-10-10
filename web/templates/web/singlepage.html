@@ -1,0 +1,70 @@
+{% extends 'web/base.html' %}
+{% block pageTitle %}{{icon.name}}{% endblock %}
+
+{% block body %}
+
+<div class="width">
+  <section class="icon_single">
+    <aside class="icon_single_detail">
+      <aside>
+        <img src="{{ icon.preview_image.url }}">
+      </aside>
+      <ul>
+        <li><span>Icon name :</span> {{icon.name}}</li>
+        <li><span>Release date :</span> {{icon.published_date|date:"M d Y"}}</li>
+        <li><span>Categorie :</span> {{icon.categorie}}</li>
+        <li><span>Views :</span> {{icon.views}}</li>
+        <li><span>CopyRight :</span> <a href="{{icon.copyright_link}}" target="_blank">{{icon.copyright_title}}</a></li>
+        <li><a class="btnDownload" href="{{icon.download_link}}">DOWNLOAD LINK</a></li>
+      </ul>
+    </aside>
+
+    <div class="icon_sort">
+      {% if relatedIcon %}
+        <ul>
+          {% for myicon in relatedIcon %}
+            {% if myicon.id == icon.id %}
+            {% else %}
+            <li>
+              <a href="{% url 'index:singlepage' myicon.id %}">
+                <img src="{{ myicon.preview_image.url }}">
+                <div class="txt_column">
+                  <div class="txt">
+                    <h6>{{ myicon.name }}</h6>
+                    <span>{{ myicon.published_date|date:"Y / M"  }}</span>
+                  </div>
+
+                  <p>{{ myicon.views }}</p>
+                </div>
+              </a>
+            </li>
+            {%endif%}
+          {% endfor %}
+        </ul>
+      {% else %}
+        <ul>
+          {% for myicon in relatedIconnotFound %}
+            {% if myicon.id == icon.id %}
+            {% else %}
+            <li>
+              <a href="{% url 'index:singlepage' myicon.id %}">
+                <img src="{{ myicon.preview_image.url }}">
+                <div class="txt_column">
+                  <div class="txt">
+                    <h6>{{ myicon.name }}</h6>
+                    <span>{{ myicon.published_date|date:"Y / M"  }}</span>
+                  </div>
+
+                  <p>{{ myicon.views }}</p>
+                </div>
+              </a>
+            </li>
+            {%endif%}
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </section>
+</div>
+
+{% endblock %}

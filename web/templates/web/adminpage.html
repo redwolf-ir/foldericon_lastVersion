@@ -1,0 +1,38 @@
+{% extends 'web/base.html' %}
+{% block pageTitle %}home page{% endblock %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+<div class="width">
+	<section class="adminpage">
+		<h3>welcome back admin!</h3>
+		<div class="bodytwocol">
+			<div class="allicon">
+				<ul>
+					<li><h4>Last 20 icons</h4></li>
+					{% for icon in allIcon %}
+					<li><a href="{% url 'index:singlepage' icon.id %}">{{icon.name}}</a> | {{icon.views}} | <a href="{% url 'index:updateIcon' icon.id %}">edit</a> | delete</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="allicon">
+				<ul>
+					{% for icon in allIcon %}
+					<li>{{icon.name}}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</section>
+</div>
+{% else %}
+<div class="width">
+	<section class="adminpage">
+		<h3>Sorry! but you shouldn't be here, Please go back to the home page</h3>
+		<a href="{% url 'index:index' %}" class="goToHomePage">HOME PAGE</a>
+	</section>
+</div>
+{% endif %}
+
+{% endblock %}

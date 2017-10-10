@@ -1,0 +1,38 @@
+{% extends 'web/base.html' %}
+{% block body %}
+<br><br>
+{% if user.is_authenticated %}
+
+<form class="" action="" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	{% include 'web/form_template.html' %}
+	<button>submit</button>
+</form>
+
+<br>
+
+<script type="text/javascript">
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+
+	var yyyy = today.getFullYear();
+	if(dd<10){
+	    dd='0'+dd;
+	} 
+	if(mm<10){
+	    mm='0'+mm;
+	} 
+
+	var hour = new Date();
+	var h = hour.getHours();
+	var m = hour.getMinutes();
+	var s = hour.getSeconds();
+
+	var today = dd+'-'+mm+'-'+yyyy+' '+h+':'+m+':'+s ;
+	document.getElementById('id_published_date').value= today;
+</script>
+
+{% endif %}
+
+{% endblock %}

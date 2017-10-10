@@ -1,0 +1,82 @@
+{% extends 'web/base.html' %}
+{% block pageTitle %}home page{% endblock %}
+
+{% block body %}
+
+<div class="width">
+	<section class="searchform_section">
+		<div class="width displayFlex midleSearch_flex">
+			<p>{{allIcons|length}} Free Folder Icons</p>
+			<span>in three categorie, includ <a href="#">Tv Shows</a>, <a href="#">Movies</a> and <a href="#">Video Games</a></span>
+			<form class="main_searchForm" method="get" action="{% url 'index:searchresults' %}" accept-charset="utf-8">
+				<input type="text" id="searchBox" class="input-medium search-query" name="searchQuery" placeholder="Search for icons">
+				<button>Submit</button>
+			</form>
+		</div>
+	</section>
+
+	<section class="icon_sort">
+		<h2>Best icons of the month</h2>
+
+		{% if mustView %}
+		<ul>
+		{% for myicon in mustView %}
+	        <li>
+	        	<a href="{% url 'index:singlepage' myicon.id %}">
+	        	<img src="{{ myicon.preview_image.url }}">
+	        	<div class="txt_column">
+		        	<div class="txt">
+		                <h6>{{ myicon.name }}</h6>
+		                <span>{{ myicon.published_date|date:"Y / M"  }}</span>
+		        	</div>
+
+		            <p>{{ myicon.views }}</p>
+	            </div>
+	        	</a>
+	        </li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+
+		<h2>Last new icons</h2>
+		{% if viewIcons %}
+		<ul>
+		{% for icon in viewIcons %}
+			<li>
+				<a href="{% url 'index:singlepage' icon.id %}">
+					<img src="{{ icon.preview_image.url }}">
+					<div class="txt_column">
+						<div class="txt">
+							<h6>{{ icon.name }}</h6>
+							<span>{{ icon.published_date|date:"Y / M" }}</span>
+						</div>
+
+						<p>{{ icon.views }}</p>
+					</div>
+				</a>
+			</li>
+		{% endfor %}
+		{% else %}
+		  <h3>NO ICONS FIND</h3>
+		{% endif %}
+		</ul>
+
+		{% if is_paginated %}
+		  <div class="pagination">
+		  	<span class="page-links">
+		    	{% if page_obj.has_previous %}
+		        	<a href="?page={{ page_obj.previous_page_number }}">previous</a>
+		        {% endif %}
+		        <span class="page-current">
+		        	Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+		        </span>
+		        {% if page_obj.has_next %}
+		        	<a href="?page={{ page_obj.next_page_number }}">next</a>
+		        {% endif %}
+		  	</span>
+		  </div>
+		{% endif %}
+	</section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,535 @@
+/*
+-==--=-=-==--=-=-=-=-=-=-=-=-=-
+=-==--=-=-[CSS RESET]-==--=-=-=
+-==--=-=-==--=-=-=-=-=-=-=-=-=-
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    background: #f1f5f8;
+    direction: ltr;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.width {
+  width: 980px;
+  margin: 0 auto;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active, a:focus {
+    outline: none;
+}
+
+/*
+-==--=-=-==--=-=-=-=-=-=-=-=-=-
+FONTS FACES
+-==--=-=-==--=-=-=-=-=-=-=-=-=-
+*/
+
+/*
+-==--=-=-==--=-=-=-=-=-=-=-=-=-
+INDEX PAGE
+-==--=-=-==--=-=-=-=-=-=-=-=-=-
+*/
+.top_header {
+  width: 100%;
+  padding: 32px 0;
+  background: #FFFFFF;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.001), 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.displayFlex {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.top_flex {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top_header ul {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.top_header ul li {
+  font-family: 'Ubuntu', serif;
+  margin-left: 16px;
+  font-size: 1em;
+  word-spacing: -2px;
+  font-weight: normal;
+}
+
+.top_header ul li a {
+  color: #32325d;
+}
+
+.top_header ul li a:hover {
+  color: #606cec;
+}
+
+.top_header ul li:before {
+  content: "/";
+  color: #c4c3ce;
+  float: right;
+  cursor: default;
+  margin-left: 16px;
+}
+
+.top_header ul li:last-child {
+  margin-right: 0;
+}
+
+.top_header ul li:last-child:before {
+  display: none;
+}
+
+.logo {
+  background: red;
+}
+
+.main_searchForm {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin-top: 16px;
+}
+
+.main_searchForm input {
+  width: 100%;
+  border: 0;
+  padding: 32px;
+  border: 1px solid #efefef;
+  background: #FFFFFF;
+  border-radius: 8px;
+  direction: ltr;
+  box-sizing: border-box;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.001), 0 10px 40px rgba(0, 0, 0, 0.05);
+  font-family: 'Ubuntu', serif;
+  font-size: 1em;
+}
+
+.main_searchForm input:focus {
+  outline: none;
+}
+
+.main_searchForm button {
+  border: none;
+  height: 70%;
+  background: #606cec;
+  border-radius: 8px;
+  position: absolute;
+  right: 12px;
+  font-family: 'Ubuntu', serif;
+  font-size: 1em;
+  color: #FFFFFF;
+  padding: 0 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.main_searchForm button:hover {
+  background: #6b7c93;
+} 
+
+/*SEARCH FORM SECTION*/
+.searchform_section {
+  width: 100%;
+  padding: 64px 0;
+  margin: 32px 0;
+  text-align: center;
+}
+
+.midleSearch_flex {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.midleSearch_flex p {
+  font-family: 'Ubuntu', serif;
+  font-size: 3.5em;
+  font-weight: bold;
+  color: #606cec;
+  padding-bottom: 16px;
+}
+
+.midleSearch_flex span {
+  font-family: 'Ubuntu', serif;
+  font-size: 1.5em;
+  color: #32325d;
+  padding-bottom: 16px;
+}
+
+.midleSearch_flex span a {
+  font-weight: bold;
+  color: #6b7c93;
+}
+
+.midleSearch_flex span a:hover {
+  color: #606cec;
+}
+
+/*INDEX CONTENT*/
+.icon_sort {
+  width: 100%;
+}
+
+.icon_sort h2 {
+  font-family: 'Ubuntu', serif;
+  font-size: 3.5em;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2em;
+  word-spacing: -2px;
+  margin-bottom: 32px;
+  text-align: center;
+  color: #32325d;
+}
+
+.icon_sort h3 {
+  font-family: 'Ubuntu', serif;
+  font-size: 3.5em;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2em;
+  word-spacing: -2px;
+  margin-bottom: 32px;
+  text-align: center;
+  color: #32325d;
+}
+
+.goToHomePage {
+  font-family: 'Ubuntu', serif;
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+  display: table;
+  padding: 16px;
+  color: #FFFFFF;
+  background: #606cec;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}  
+
+.goToHomePage:hover {
+  background: #6b7c93;
+} 
+
+.icon_sort ul {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  justify-content: flex-start;
+}
+
+.icon_sort ul li {
+  width: 32%;
+  background: #FFFFFF;
+  margin-bottom: 2%;
+  border: 1px solid #efefef;
+  box-shadow: 0 3px 12px rgba(96,108,236, 0.03), 0 3px 12px rgba(96,108,236, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-right: 2%;
+}
+
+.icon_sort ul li:nth-child(3n) {
+  margin-right: 0;
+}
+
+.icon_sort ul li:hover {
+  border: 1px solid rgb(96,108,236);
+}
+
+.icon_sort ul li:hover h6 {
+  color: #606cec;
+}
+
+.icon_sort ul li:hover p { 
+  color: #606cec;
+}
+
+.icon_sort ul li img {
+  max-width: 92%;
+  margin: 0 4%;
+  height: auto;
+}
+
+.txt_column {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 8% 8% 8%;
+}
+
+.txt {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 80%;
+}
+
+.icon_sort ul li h6 {
+  font-family: 'Ubuntu', serif;
+  text-align: left;
+  font-size: 0.9em;
+  color: #51585e;
+}
+
+.icon_sort ul li span {
+  display: block;
+  font-family: 'Ubuntu', serif;
+  text-align: left;
+  font-size: 0.7em;
+  color: #b3b4b6;
+  margin-top: 4px;
+}
+
+.icon_sort ul li p {
+  width: 20%;
+  font-family: 'Ubuntu', serif;
+  font-size: 0.7em;
+  text-align: right;
+}
+
+/*PAGATIONS*/
+.pagination {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Ubuntu', serif;
+  font-size: 0.9em;
+  margin-top: 16px;
+}
+
+/*FOOTER*/
+.footer {
+  width: 100%;
+  padding: 32px 0;
+  background: black;
+}
+
+/*
+-==--=-=-==--=-=-=-=-=-=-=-=-=-
+ICON SINGLE
+-==--=-=-==--=-=-=-=-=-=-=-=-=-
+*/
+.icon_single {
+  width: 100%;
+  margin: 64px 0;
+}
+
+.icon_single h2 {
+  font-family: 'Ubuntu', serif;
+  font-weight: bold;
+  font-size: 2em;
+  word-spacing: -2px;
+  margin-bottom: 32px;
+  text-align: center;
+  color: #2c3f46;
+}
+
+.icon_single_detail {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+  background: #FFFFFF;
+  border: 1px solid #efefef;
+  box-shadow: 0 3px 12px rgba(96,108,236, 0.03), 0 3px 12px rgba(96,108,236, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.icon_single_detail aside {
+  width: 40%;
+  float: right;
+}
+
+.icon_single_detail aside img {
+  max-width: 98%;
+  height: auto;
+  margin: 0 1%;
+}
+
+.icon_single_detail ul {
+  width: 50%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.icon_single_detail ul li {
+  font-family: 'Ubuntu', serif;
+  font-size: 1.2em;
+  word-spacing: -2px;
+  margin-bottom: 8px;
+  color: #32325d;
+}
+
+.icon_single_detail ul li span {
+  color: #606cec;
+  font-weight: bold;
+}
+
+.btnDownload {
+  font-family: 'Ubuntu', serif;
+  font-weight: bold;
+  display: table;
+  padding: 16px;
+  color: #FFFFFF;
+  background: #606cec;
+  transition: all 0.3s ease;
+}
+
+.btnDownload:hover {
+  background: #6b7c93;
+} 
+
+/*
+-==--=-=-==--=-=-=-=-=-=-=-=-=-
+ADMIN PAGE
+-==--=-=-==--=-=-=-=-=-=-=-=-=-
+*/
+.adminpage {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 64px 0;
+}
+
+.adminpage h3 {
+  font-family: 'Ubuntu', serif;
+  font-size: 3.5em;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2em;
+  word-spacing: -2px;
+  text-align: center;
+  color: #32325d;
+}
+
+.bodytwocol {
+  display: flex;
+  margin: 16px 0;
+  width: 100%;
+  flex-direction: row;
+}
+
+.allicon {
+  width: 50%;
+}
+
+.allicon ul li:before {
+  content: "- ";
+}
+
+.allicon ul li {
+  font-family: 'Ubuntu', serif;
+  font-size: 1.2em;
+  word-spacing: -2px;
+  margin-bottom: 8px;
+  color: #32325d;
+}
+
+.allicon ul li a {
+  color: #32325d;
+}
+
+.allicon ul li a:hover {
+  color: #606cec;
+}
+
+.allicon ul li h4 {
+  font-weight: bold;
+  display: inline;
+  font-style: italic;
+  color: #606cec;
+}
+
