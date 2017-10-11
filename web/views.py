@@ -30,6 +30,20 @@ class IndexView(generic.ListView):
 #
 #END INDEX VIEW
 
+#START INDEX VIEW
+#   MAIN PAGE VIEW 
+#   SHOW LAST ICONS ADDED TO DATABASE
+class bests(generic.ListView):
+    template_name= 'web/bests.html'
+    model= ICON
+    context_object_name= 'viewIcons' #chizi ke dar template fara mikhanim
+    paginate_by = 9
+
+    def get_queryset(self):
+        return ICON.objects.all().order_by('-views')
+#
+#END INDEX VIEW
+
 
 #START ICONS SINGLE VIEW
 #
@@ -90,4 +104,8 @@ class createIcon(CreateView):
 class updateIcon(UpdateView):
     model= ICON
     fields= ['name','download_link','preview_image','categorie','copyright_title','copyright_link','views', 'published_date']
+    success_url = reverse_lazy('index:adminpage')
+
+class deleteIcon(DeleteView):
+    model= ICON
     success_url = reverse_lazy('index:adminpage')

@@ -12,16 +12,16 @@
 				<ul>
 					<li><h4>Last 20 icons</h4></li>
 					{% for icon in allIcon %}
-					<li><a href="{% url 'index:singlepage' icon.id %}">{{icon.name}}</a> | {{icon.views}} | <a href="{% url 'index:updateIcon' icon.id %}">edit</a> | delete</li>
+					<li><a href="{% url 'index:singlepage' icon.id %}">{{icon.name}}</a> | {{icon.views}} | <a href="{% url 'index:updateIcon' icon.id %}">edit</a> |
+					<form method="POST" action="{% url 'index:deleteIcon' icon.id %}">
+					   {% csrf_token %}<input type="submit" value="delete">
+					</form>
+					</li>
 					{% endfor %}
 				</ul>
 			</div>
 			<div class="allicon">
-				<ul>
-					{% for icon in allIcon %}
-					<li>{{icon.name}}</li>
-					{% endfor %}
-				</ul>
+				<a class="btn_addNewIcon" href="{% url 'index:createIcon' %}">add new icon</a>
 			</div>
 		</div>
 	</section>

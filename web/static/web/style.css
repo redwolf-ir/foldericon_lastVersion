@@ -450,6 +450,14 @@ ICON SINGLE
   color: #32325d;
 }
 
+.icon_single_detail ul li a {
+  color: #32325d;
+}
+
+.icon_single_detail ul li a:hover {
+  color: #6b7c93;
+}
+
 .icon_single_detail ul li span {
   color: #606cec;
   font-weight: bold;
@@ -460,7 +468,7 @@ ICON SINGLE
   font-weight: bold;
   display: table;
   padding: 16px;
-  color: #FFFFFF;
+  color: #FFFFFF!important;
   background: #606cec;
   transition: all 0.3s ease;
 }
@@ -490,6 +498,7 @@ ADMIN PAGE
   font-weight: bold;
   font-style: italic;
   font-size: 2em;
+  margin-bottom: 16px;
   word-spacing: -2px;
   text-align: center;
   color: #32325d;
@@ -518,6 +527,24 @@ ADMIN PAGE
   color: #32325d;
 }
 
+.allicon ul li form {
+  display: inline;
+}
+
+.allicon ul li form input {
+  font-family: 'Ubuntu', serif;
+  font-size: 1em;
+  border: none;
+  color: #32325d;
+  padding: 0;
+  background: transparent;
+}
+
+.allicon ul li form input:hover {
+  cursor: pointer;
+  color: #606cec;
+}
+
 .allicon ul li a {
   color: #32325d;
 }
@@ -532,6 +559,23 @@ ADMIN PAGE
   font-style: italic;
   color: #606cec;
 }
+
+.btn_addNewIcon {
+  font-family: 'Ubuntu', serif;
+  font-weight: bold;
+  font-size: 2em;
+  padding: 8px;
+  display: inline;
+  font-style: italic;
+  background: #606cec;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.btn_addNewIcon:hover {
+  background: #6b7c93;
+}
+
 /*
 -==--=-=-==--=-=-=-=-=-=-=-=-=-
 FORM PAGE

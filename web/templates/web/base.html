@@ -13,7 +13,7 @@
 		<div class="logo">my logo</div>
 
 		<ul>
-			<li><a href="#">Home</a></li>
+			<li><a href="{% url 'index:index' %}">Home</a></li>
 			<li><a href="#">Top icons</a></li>
 			<li><a href="#">Request</a></li>
 		</ul>
@@ -22,6 +22,9 @@
 			<li><a href="#">Home</a></li>
 			<li><a href="#">Top Icons</a></li>
 			<li><a href="#">Request</a></li>
+			{% if user.is_authenticated %}
+			<li><a href="{% url 'index:adminpage' %}">Admin Panel</a></li>
+			{% endif %}
 		</ul>
 	</div>
 </header>

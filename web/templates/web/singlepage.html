@@ -15,6 +15,9 @@
         <li><span>Categorie :</span> {{icon.categorie}}</li>
         <li><span>Views :</span> {{icon.views}}</li>
         <li><span>CopyRight :</span> <a href="{{icon.copyright_link}}" target="_blank">{{icon.copyright_title}}</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'index:updateIcon' icon.id %}">Edit</a></li>
+        {% endif %}
         <li><a class="btnDownload" href="{{icon.download_link}}">DOWNLOAD LINK</a></li>
       </ul>
     </aside>
