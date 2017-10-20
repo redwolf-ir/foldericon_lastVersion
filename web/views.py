@@ -6,8 +6,33 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
-from django.http import HttpRequest 
+from django.http import HttpRequest, HttpResponse
 from datetime import datetime, date
+import csv
+import json
+
+#START GET ICON AJAX VIEW
+#   MAIN PAGE VIEW 
+#   SHOW LAST ICONS ADDED TO DATABASE
+def get_icons(request):
+    if request.is_ajax():
+        query = request.GET.get('term', '')
+        icons = ICON.objects.filter(name__contains=query)
+        results = []
+        for icon in icons:
+            icon_json = {}
+            icon_json['id'] = icon.id
+            icon_json['label'] = icon.name
+            icon_json['value'] = icon.name
+            results.append(icon_json)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
+#
+#END GET ICON AJAX VIEW
+
 
 #START INDEX VIEW
 #	MAIN PAGE VIEW 

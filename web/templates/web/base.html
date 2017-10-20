@@ -5,6 +5,19 @@
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static "web/style.css" %}">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		$(function() {
+		  $(".searcInput").autocomplete({
+		    source: "/api/get_icons/",
+		    minLength: 2,
+		  });
+		});
+	</script>
 </head>
 <body>
 
@@ -14,7 +27,7 @@
 
 		<ul>
 			<li><a href="{% url 'index:index' %}">Home</a></li>
-			<li><a href="#">Top icons</a></li>
+			<li><a href="{% url 'index:bests' %}">Top icons</a></li>
 			<li><a href="#">Request</a></li>
 		</ul>
 

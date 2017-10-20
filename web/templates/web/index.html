@@ -8,8 +8,9 @@
 		<div class="width displayFlex midleSearch_flex">
 			<p>{{allIcons|length}} Free Folder Icons</p>
 			<span>in three categorie, includ <a href="{% url 'index:categoriepage' 2 %}">Tv Shows</a>, <a href="{% url 'index:categoriepage' 1 %}">Movies</a> and <a href="{% url 'index:categoriepage' 3 %}">Video Games</a></span>
+
 			<form class="main_searchForm" method="get" action="{% url 'index:searchresults' %}" accept-charset="utf-8">
-				<input type="text" id="searchBox" class="input-medium search-query" name="searchQuery" placeholder="Search for icons">
+				<input type="text" id="searchBox" class="searcInput" name="searchQuery" placeholder="Search for icons">
 				<button>Submit</button>
 			</form>
 		</div>

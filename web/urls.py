@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^icon/add/$', views.createIcon.as_view(), name='createIcon'),
     url(r'^icon/(?P<pk>[0-9]+)/update/$', views.updateIcon.as_view(), name='updateIcon'),
     url(r'^icon/(?P<pk>[0-9]+)/delete/$', views.deleteIcon.as_view(), name='deleteIcon'),
+    url(r'^api/get_icons/', views.get_icons, name='get_icons'),
 ]
